@@ -4,110 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica Jack</title>
-    <meta name="description" content="Research websites by Jessica Jack, University of Saskatchewan.">
+    <meta name="description" content="Jessica Jack, PhD Student, University of Saskatchewan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --usask-green: #006633;
-            --usask-green-dark: #005528;
-            --usask-gold: #FFCC00;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --background: #FFFFFF;
-            --background-alt: #F8F9FA;
-            --border-color: #E0E0E0;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --radius-md: 8px;
+            --bg: #F7F7F4;
+            --surface: #FFFFFF;
+            --ink: #1E2421;
+            --muted: #5A625E;
+            --green: #2F5D50;
+            --coral: #C8553D;
+            --border: #E2E4DF;
+            --radius: 6px;
         }
 
         * { box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-primary);
-            background: var(--background-alt);
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             line-height: 1.6;
         }
 
-        header {
-            background: var(--usask-green);
-            color: var(--background);
-            border-bottom: 4px solid var(--usask-gold);
-            padding: 2.5rem 16px;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        header p {
-            margin: 0.25rem 0 0;
-            opacity: 0.9;
+        h1, h2, h3 {
+            font-family: "IBM Plex Serif", Georgia, serif;
+            font-weight: 600;
         }
 
         .wrap {
             max-width: 760px;
             margin: 0 auto;
+            padding: 0 16px;
         }
 
-        main {
-            padding: 2rem 16px 3rem;
+        nav {
+            padding: 18px 0;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        nav a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        nav a:hover { text-decoration: underline; }
+
+        .hero {
+            padding: 32px 0 24px;
+            border-bottom: 2px solid var(--green);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.4rem;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            margin: 6px 0 0;
+            color: var(--muted);
+        }
+
+        section { padding: 24px 0; }
+
+        section h2 {
+            margin: 0 0 14px;
+            font-size: 1.35rem;
+            color: var(--green);
+        }
+
+        .about {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .about img {
+            width: 160px;
+            height: auto;
+            border-radius: var(--radius);
+            flex-shrink: 0;
+        }
+
+        .about p { margin: 0 0 1em; }
+
+        @media (max-width: 560px) {
+            .about { flex-direction: column; }
         }
 
         .card {
             display: block;
-            background: var(--background);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--usask-green);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            padding: 1.25rem 1.5rem;
-            margin-bottom: 1rem;
-            color: inherit;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--coral);
+            border-radius: var(--radius);
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            color: var(--ink);
             text-decoration: none;
-            transition: box-shadow 0.15s, border-color 0.15s;
+            transition: border-color 0.15s;
         }
 
         .card:hover,
-        .card:focus {
-            box-shadow: var(--shadow-md);
-            border-left-color: var(--usask-gold);
-            outline: none;
-        }
+        .card:focus { border-left-color: var(--green); }
 
-        .card h2 {
-            margin: 0 0 0.25rem;
-            font-size: 1.2rem;
-            color: var(--usask-green);
+        .card h3 {
+            margin: 0 0 4px;
+            font-size: 1.05rem;
+            color: var(--green);
         }
 
         .card p {
             margin: 0;
-            color: var(--text-secondary);
+            font-size: 0.95rem;
+            color: var(--muted);
         }
 
+        ul.pubs {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        ul.pubs > li { margin-bottom: 10px; }
+
+        ul.pubs ul {
+            margin: 6px 0 0;
+            padding-left: 20px;
+        }
+
+        ul.pubs ul li { margin-bottom: 4px; }
+
+        ul.pubs a { color: var(--green); }
+
+        a.email { color: var(--coral); }
+
+        footer {
+            padding: 24px 0 40px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="wrap">
+    <div class="wrap">
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#publications">Publications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <header class="hero">
             <h1>Jessica Jack</h1>
-            <p>University of Saskatchewan</p>
-        </div>
-    </header>
+            <p>PhD Student, University of Saskatchewan</p>
+        </header>
 
-    <main class="wrap">
-        <a class="card" href="https://jjax07.github.io/Sask_Railway_Visualizations/">
-            <h2>Saskatchewan Railway Visualizations</h2>
-            <p>Interactive visualizations of how railway networks shaped settlement patterns in Saskatchewan, 1882-1920.</p>
-        </a>
+        <main>
+            <section id="about">
+                <h2>About</h2>
+                <div class="about">
+                    <img src="images/jjack2_03_web.png" alt="Jessica Jack">
+                    <div>
+                        <p>I am a PhD student in History at the University of Saskatchewan, supervised by Dr. Jim Clifford. My research examines how settlement converted Indigenous land into private property on the Canadian prairies. Between 1880 and 1930, Saskatchewan developed an intricate settler network of homesteads, large-scale farms, and more than 900 hamlets, villages, towns, and cities. Combining close archival reading with historical GIS and text mining, my dissertation asks how this network functioned, who accumulated land beyond the homestead scale, and how its growth related to the pace and pattern of Indigenous dispossession.</p>
+                        <p>I came to history from anthropology, completing an MA in Medical Anthropology in 2023. From 2021 to 2023, I was Co-Editor-in-Chief of the <em>Pathways Graduate Journal</em> in the Department of Anthropology. Drawing on the community-based methods I learned in anthropology, I joined a 2024 Traditional Land Use Study for the community of Sakitawak. Its mapping work caught my interest, and the training in historical GIS it required drew me toward digital history. Since 2025, I have worked on the Mapping Settler Colonialism project led by Drs. Jim Clifford and Cheryl Troupe, have supervised research assistants in the Historical GIS Lab, and write about how historians can use AI and large language models as research tools.</p>
+                    </div>
+                </div>
+            </section>
 
-        <a class="card" href="https://jjax07.github.io/Sask_Community_Sources/">
-            <h2>Saskatchewan Community Sources</h2>
-            <p>A searchable database of historical sources for 428 Saskatchewan communities, part of the Mapping Settler Colonialism research project.</p>
-        </a>
-    </main>
+            <section id="projects">
+                <h2>Projects</h2>
+                <a class="card" href="https://jjax07.github.io/Sask_Railway_Visualizations/">
+                    <h3>Saskatchewan Railway Visualizations</h3>
+                    <p>Interactive visualizations of how railway networks shaped settlement patterns in Saskatchewan, 1882-1920.</p>
+                </a>
+                <a class="card" href="https://jjax07.github.io/Sask_Community_Sources/">
+                    <h3>Saskatchewan Community Sources</h3>
+                    <p>A searchable database of historical sources for 428 Saskatchewan communities, part of the Mapping Settler Colonialism research project.</p>
+                </a>
+            </section>
+
+            <section id="publications">
+                <h2>Publications &amp; Presentations</h2>
+                <ul class="pubs">
+                    <li>
+                        <a href="https://activehistory.ca/ai-and-collaboration/">"AI and Collaboration" series</a>, <em>Active History</em>, September-October 2026. With Chloë Farr and Jacob Polay.
+                        <ul>
+                            <li><a href="https://activehistory.ca/blog/2026/09/23/ai-enabled-document-transcription/">"The AI-Enabled Boom in Document Transcription."</a> Lead author: Chloë Farr. September 23.</li>
+                            <li><a href="https://activehistory.ca/blog/2026/09/30/building-ai-tools-historical-research/">"Stop Choosing Tools. Start Building Them."</a> Lead author: Jacob Polay. September 30.</li>
+                            <li><a href="https://activehistory.ca/blog/2026/10/07/named-entity-recognition-large-language-models/">"Can You Read Two Million Pages? An LLM Can Help."</a> Lead author: Jacob Polay. October 7.</li>
+                            <li><a href="https://activehistory.ca/blog/2026/10/14/llm-saskatchewans-settlement-history/">"Not Just Farming: How an LLM Helped Me Study Saskatchewan's Smallest Settlements."</a> Lead author: Jessica Jack. October 14.</li>
+                        </ul>
+                    </li>
+                    <li>Polay, Jacob, Chloë Farr, and Jessica Jack. <a href="https://activehistory.ca/blog/2026/07/13/the-archive-is-not-a-toy-the-hidden-problems-of-a-vintage-ai/">"The Archive is Not a Toy: The Hidden Problems of a 'Vintage' AI."</a> <em>Active History</em>, July 13, 2026.</li>
+                    <li>Jack, Jessica. <a href="https://working-papers-in-critical-search.github.io/paper-003-iterative-visualization/">"What Became Possible: Iterative Visualization with an LLM as a Research Method in Computational History."</a> <em>Working Papers in Critical Search</em>, Paper 003, 2026.</li>
+                    <li>Clifford, Jim, Jacob Polay, Jessica Jack, Mark Humphries, and Lianne C. Leddy. <a href="https://working-papers-in-critical-search.github.io/paper-004-ocr-benchmark/">"Reading the Archive by Machine: An OCR Benchmark for Historians, 1612-1921."</a> <em>Working Papers in Critical Search</em>, Paper 004, 2026.</li>
+                    <li>Jack, Jessica, and Jim Clifford. "Unmaking the Prairies: Rethinking Saskatchewan's Networked Settler Colonialism." Canadian Historical Association Annual Meeting, Charlottetown, June 2026.</li>
+                    <li>Jack, Jessica. <a href="https://pathwaysgraduatejournal.ca/index.php/pathways/article/view/22/42">"How Bizarre, How Bizarre, How Bees Are: Domus and Umwelt in the Multispecies Entanglements of Humans and Honeybees."</a> <em>Pathways Graduate Journal</em> 1, no. 2 (2021): 47-51.</li>
+                    <li>Jack, Jessica. <a href="https://pathwaysgraduatejournal.ca/index.php/pathways/article/view/9/3">"The Akkadian Cylinder Seal: Metonym for Life in Akkad."</a> <em>Pathways Graduate Journal</em> 1, no. 1 (2020): 29-37.</li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2>Contact</h2>
+                <a class="email" href="mailto:jessica.jack@usask.ca">jessica.jack@usask.ca</a>
+            </section>
+        </main>
+
+        <footer>&copy; Jessica Jack</footer>
+    </div>
 </body>
 </html>
